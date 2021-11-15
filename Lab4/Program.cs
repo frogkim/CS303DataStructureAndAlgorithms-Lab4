@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 // This assignment concerns a Compressor class written to fulfill the requirements for Lab #4.
 // In each of the tests below, work out the expected results manually and show your work,
 // except where indicated that you may write C# code.
@@ -7,7 +8,12 @@
 // 0. Research the CompareTo method of the string class in C#,
 // and explain why it does not always agree with the ASCII ordering of characters.
 // Give an example.
-// CompareTo 
+// CompareTo receive parameters string type or object type.
+// For example, there is a class Person we made in Lab 3.
+// If we create a string type and compare, it will be failed always.
+// Person p = new Person("123456789");
+// string s = "Hello, frogkim!!";
+// s.CompareTo(p); // always returns negative number
 
 //1.Consider an input file consisting of the following text:
 //ADBEBDABCBDBEBABDDBBEEBDABCDBEBABDBC
@@ -16,6 +22,7 @@
 //(ii)the frequency that the character appears (that is, the number of times the character appears);
 //(iii)the probability of the character (that is, the frequency divided by the total number of characters in the file).
 //You may write C# code to answer this question.
+// distinct character || frequency to appear || probability \\
 
 //2. BY HAND, use Huffman's Algorithm to generate code words for each character in the input file based on your answer to Question 1 above.
 //Show each step in the algorithm separately,
@@ -41,9 +48,56 @@ namespace Lab4
         static void Main(string[] args)
         {
             string s = "Hello, World!";
-            s.CompareTo()
+            s.CompareTo();
+
+            // optional
+            // make file class and import data from txt file.
+            string q1 = "ADBEBDABCBDBEBABDDBBEEBDABCDBEBABDBC";
+            FirstQuestion fq = new(q1);
             
             Console.WriteLine("Hello World!");
+        }
+    }
+}
+
+class FirstQuestion
+{
+    private string data;
+    private class characterClass
+    {
+        private char character;
+        private int count;
+        characterClass(char inputCharacter)
+        {
+            character = inputCharacter;
+            count = 0;
+        }
+        public char getCharacter()
+        {
+            return character;
+        }
+        public void countUP()
+        {
+            count++;
+        }
+    }
+    private ArrayList<characterClass> myList = new ArrayList<characterClass>();
+    // There are 26 alphabet chracters.
+    // It is possible to make like that "int[] characters = new int[26];" and count each character.
+    // However, if it is unicode, uses 2 bytes characters, it will be wasteful.
+    // Because the worst time complexity will be 65355^n, n is the size of string.
+    FirstQuestion(string input)
+    {
+        data = input;
+    }
+    public void checkCharacter()
+    {
+        for(int i=0; i< data.Length; i++)
+        {
+            for(int j=0; j< myList.Capacity)
+            {
+
+            }
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\frogkim\\Source\\Repos\\frogkim\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\Lab4.csproj": {}
+    "C:\\Users\\frogkim\\source\\repos\\frogkim\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\Lab4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\frogkim\\Source\\Repos\\frogkim\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\Lab4.csproj": {
+    "C:\\Users\\frogkim\\source\\repos\\frogkim\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\Lab4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\frogkim\\Source\\Repos\\frogkim\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\Lab4.csproj",
+        "projectUniqueName": "C:\\Users\\frogkim\\source\\repos\\frogkim\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\Lab4.csproj",
         "projectName": "Lab4",
-        "projectPath": "C:\\Users\\frogkim\\Source\\Repos\\frogkim\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\Lab4.csproj",
+        "projectPath": "C:\\Users\\frogkim\\source\\repos\\frogkim\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\Lab4.csproj",
         "packagesPath": "C:\\Users\\frogkim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\frogkim\\Source\\Repos\\frogkim\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\obj\\",
+        "outputPath": "C:\\Users\\frogkim\\source\\repos\\frogkim\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\frogkim\\AppData\\Roaming\\NuGet\\NuGet.Config",

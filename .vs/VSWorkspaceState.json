@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Lab4"
+    "\\Lab4",
+    "\\Lab4\\bin\\Release"
   ],
-  "SelectedNode": "\\Lab4\\Program.cs",
+  "SelectedNode": "\\Lab4\\Lab4.csproj",
   "PreviewInSolutionExplorer": false
 }

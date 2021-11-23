@@ -146,6 +146,29 @@ namespace Lab4
 
         public static void compress(string inputFileName, string outputFileName)
         {
+            FileStream inputFile = File.OpenRead(inputFileName);
+            var WordDictionary = new Dictionary<byte, Word>();
+            while(true)
+            {
+                int intInput = inputFile.ReadByte(); // C# uses the maigc value -1 for EOF
+                if (intInput == -1) break;
+                byte byteInput = (byte)intInput;
+                if(!WordDictionary.ContainsKey(byteInput))
+                {
+                    Word newWord = new Word();
+                    newWord.plainWord = "" + (char)byteInput;
+                    newWord.probability = 1; //place-holder
+                    WordDictionary.Add(byteInput, newWord);
+                }
+                else
+                {
+                    WordDictionary[byteInput].probability++;
+                }
+            }
+            inputFile.Close();
+            
+            FileStream outputFile = File.OpenRead(outputFileName);
+
             //YOUR CODE HERE
         }
 
@@ -155,6 +178,32 @@ namespace Lab4
         //filled in
         {
             //YOUR CODE HERE
+            //Step 1: Create a collection of RBTs, for each Word in theWords
+            //List<RootedBinaryTree<Word>> trees = new List<RootedBinaryTree<Word>>();
+            var trees = new List<RootedBinaryTree<Word>>();
+            foreach(Word w in theWords)
+            {
+                var RBT = new RootedBinaryTree<Word>(w);
+                trees.Add(RBT);
+            }
+            while(trees.Count > 1)// handles Step 4
+            {
+                //Step 2: find the "smallest" trees in our collection
+                trees.Sort();
+                // It works because RootedBinaryTree class implemented IComparable.
+                //Step 3: Combine these two samllest trees
+                var t = trees[0];
+                var tPrime = trees[1];
+                Word rootData = new Word();
+                rootData.probability = t.getData().probability + tPrime.getData().probability;
+                rootData.plainWord = t.getData().plainWord;
+                var RBT = new RootedBinaryTree<Word>(rootData);
+                RBT.combineTrees(t, tPrime);
+                //trees[0] = RBT;
+                //trees.Remove(tPrime);
+                trees.RemoveRange(0, 2);
+                trees.Add(RBT);
+            }
             
         }
 

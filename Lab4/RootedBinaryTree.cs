@@ -11,14 +11,13 @@ using System.IO;
 //the methods supplied in the code stub, but you may add private methods as appropriate.
 //Do not add data members to these classes.
 
-//The huffman method should accept a list of Word objects with the plainWord and probability
-//fields filled in, and return the same array with the codeWord fields also filled in according
-//to Huffman's Algorithm. In implementing Huffman's Algorithm, make use of the RootedBinaryTree
-//class, with the generic type parameter equal to Word. When Huffman's Algorithm combines two
-//trees, make sure that the plainWord in the left-most leaf is copied into the root of the
-//combined tree. In case of a tie in the probabilities of two Words, use the ASCII values of
-//the plainWords to determine which Word is smaller. Note that RootedBinaryTree should perform
-//shallow copying to reduce the time- and space-complexity of tree operations.
+//The huffman method should accept a list of Word objects with the plainWord and probability fields filled in, 
+//and return the same array with the codeWord fields also filled in according to Huffman's Algorithm.
+//In implementing Huffman's Algorithm, make use of the RootedBinaryTree class, with the generic type parameter
+//equal to Word. When Huffman's Algorithm combines two trees, make sure that the plainWord in the left-most leaf
+//is copied into the root of the combined tree. In case of a tie in the probabilities of two Words, use the ASCII values of
+//the plainWords to determine which Word is smaller. Note that RootedBinaryTree should perform shallow copying 
+//to reduce the time- and space-complexity of tree operations.
 
 //The compress method of the Compressor class should read the given input file, assign
 //probabilities to characters according to their frequency of occurrence in the file,
@@ -42,7 +41,6 @@ using System.IO;
 //the first 3 bits of the first byte of output (not the entire first byte);
 //similarly, do not pad individual codewords to make full bytes.
 //Then complete the decompress method of the Compressor class.
-
 namespace Lab4
 {
     public class RootedBinaryTree<T> : IComparable<RootedBinaryTree<T>>
@@ -55,6 +53,9 @@ namespace Lab4
             public Node rightChild;
             public Node parent;
         };
+        // Why does not it burst?
+        // It is initialized as null.
+
         private Node root;
         private Node currentPosition;
         public int CompareTo(RootedBinaryTree<T> otherTree)
@@ -63,39 +64,68 @@ namespace Lab4
         }
         public RootedBinaryTree(T rootData)
         {
-            //YOUR CODE HERE
+            root = new Node();
+            currentPosition = root;
+            root.nodeData = rootData;
         }
         public void toRoot()
         {
-            //YOUR CODE HERE 
+            currentPosition = root;
         }
         public bool moveLeft()
         {
-            //YOUR CODE HERE
-            return false;
+            if (currentPosition.leftChild == null)
+            {
+                return false;
+            }
+            currentPosition = currentPosition.parent;
+            return true;
         }
         public bool moveRight()
         {
-            //YOUR CODE HERE
-            return false;
+            if (currentPosition.rightChild == null)
+            {
+                return false;
+            }
+            currentPosition = currentPosition.parent;
+            return true;
         }
         public bool moveUp()
         {
-            //YOUR CODE HERE
-            return false;
+            //if(currentPosition == root)
+            //{
+            //    return false;
+            //}
+            if (currentPosition.parent == null)
+            {
+                return false;
+            }
+            currentPosition = currentPosition.parent;
+            return true;
         }
         public T getData()
         {
-            return default(T);//Replace this line!
-                              //YOUR CODE HERE
+            return currentPosition.nodeData;
         }
         public void combineTrees(RootedBinaryTree<T> leftTree, RootedBinaryTree<T> rightTree)
         {
+            //---- Check this
+            //currentPosition = new Node();
+            //root = currentPosition;
+            //currentPosition.leftChild = leftTree.root;
+            //currentPosition.rightChild = rightTree;
+
+            root.leftChild = leftTree.root;
+            root.rightChild = rightTree.root;
+            leftTree.root.parent = root;
+            rightTree.root.parent = root;
+            //?? currentPosition = root;
+
             //YOUR CODE HERE: combine the two arguments under the root of the invoking tree object.
         }
         public void setNodeData(T nodeData)
         {
-            //YOUR CODE HERE
+            currentPosition.nodeData = nodeData;
         }
     }
     public class Compressor
@@ -109,20 +139,25 @@ namespace Lab4
             public int CompareTo(Word otherWord)
             {
                 int ret = probability.CompareTo(otherWord.probability);
-                if (ret == 0) ret = ((int)plainWord[0] < (int)otherWord.plainWord[0]) ? -1 : 1;
-                //plainWord.CompareTo(otherWord.plainWord);//
+                if (ret == 0) ret = ((int)plainWord[0] < (int)otherWord.plainWord[0]) ? -1 : 1;//plainWord.CompareTo(otherWord.plainWord);//
                 return ret;
             }
         }
+
         public static void compress(string inputFileName, string outputFileName)
         {
             //YOUR CODE HERE
         }
+
         public static void huffman(List<Word> theWords)
-            //input conditions: theWords contains plainWord and probability fields; output conditions: codeWord fields are filled in
+        //input conditions: theWords 
+        //contains plainWord and probability fields; output conditions: codeWord fields are
+        //filled in
         {
             //YOUR CODE HERE
+            
         }
+
         public static void decompress(string inputFileName, string outputFileName)
         {
             //OPTIONAL: YOUR CODE HERE

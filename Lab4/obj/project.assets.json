@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\jchoi11\\.nuget\\packages\\": {}
+    "C:\\Users\\frogkim\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jchoi11\\Source\\Repos\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\Lab4.csproj",
+      "projectUniqueName": "C:\\Users\\frogkim\\Source\\Repos\\frogkim\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\Lab4.csproj",
       "projectName": "Lab4",
-      "projectPath": "C:\\Users\\jchoi11\\Source\\Repos\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\Lab4.csproj",
-      "packagesPath": "C:\\Users\\jchoi11\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jchoi11\\Source\\Repos\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\obj\\",
+      "projectPath": "C:\\Users\\frogkim\\Source\\Repos\\frogkim\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\Lab4.csproj",
+      "packagesPath": "C:\\Users\\frogkim\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\frogkim\\Source\\Repos\\frogkim\\CS303DataStructureAndAlgorithms-Lab4\\Lab4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "\\\\PROFILES\\Students$\\jchoi11\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\frogkim\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 // This assignment concerns a Compressor class written to fulfill the requirements for Lab #4.
 // In each of the tests below, work out the expected results manually and show your work,
 // except where indicated that you may write C# code.
@@ -15,8 +16,6 @@
 // Test Class 0x54 : -1
 // 123 0x31 : 1 
 // Some text 0x53 : -1
-
-
 
 //1.Consider an input file consisting of the following text:
 //ADBEBDABCBDBEBABDDBBEEBDABCDBEBABDBC
@@ -49,13 +48,17 @@ namespace Lab4
     {
         static void Main(string[] args)
         {
+            //Console.WriteLine("First Test");
+            //new Tester("ADBEBDABCBDBEBABDDBBEEBDABCDBEBABDBC");
 
-            Console.WriteLine("First Test");
-            new Tester("ADBEBDABCBDBEBABDDBBEEBDABCDBEBABDBC");
-
-            Console.WriteLine("\n\nSeconde Test");
-            new Tester("DCEFDBECEGCCFFAGCBAAEGGAEADCECGHBHAHHDDGGBECFFEHAGCHBHECBEGECEGDAEDHGFDEGHHGAACHGACGCCCGGDHDFAAGBGFF");
-
+            //Console.WriteLine("\n\nSeconde Test");
+            //new Tester("DCEFDBECEGCCFFAGCBAAEGGAEADCECGHBHAHHDDGGBECFFEHAGCHBHECBEGECEGDAEDHGFDEGHHGAACHGACGCCCGGDHDFAAGBGFF");
+            string testFile = "testfile.txt";
+            string resultFile = "result";
+            StreamWriter tF = File.CreateText(testFile);
+            tF.Write("DCEFDBECEGCCFFAGCBAAEGGAEADCECGHBHAHHDDGGBECFFEHAGCHBHECBEGECEGDAEDHGFDEGHHGAACHGACGCCCGGDHDFAAGBGFF");
+            tF.Close();
+            Compressor.compress(testFile, resultFile);
         }
     }
 
